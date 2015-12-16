@@ -1,34 +1,146 @@
 @import "compass/reset"
 @import "compass/css3"
-
 $total : 100%
+%content
+	width: 1000px
+	height: 750px
+	position: relative
+	margin: 0 auto
 html
 	width: $total 
-	height: $total 
+	height: $total
 	body
 		width: $total 
 		height: $total
 		min-width: 1000px
-		min-height: 600px 
+		min-height: 600px
+		background: #000
 .wrapper 
 	width: $total 
-	height: $total
 	position: relative
+	//overflow: hidden
 	top: 0
 	left: 0
 	section
-		width: 100%
-		height: 800px
-		position: relative
+		@extend %content
+		.bg 
+			position: absolute
+			width: 1920px
+			left: 50%
+			margin-left: -960px
+			img
+				width: 100%
+		.content
+			@extend %content
+			border: 1px solid #000
+		&:first-child
+			.car1
+				position: absolute
+				left: 110px
+				top: 175px
+			.title1_1
+				position: absolute
+				right: 50px
+				top: 133px
+			.title1_2
+				position: absolute
+				left: 40px
+				top: 545px
+		&:nth-child(2)
+			.sliders
+				width: 1920*3px
+				position: absolute
+				left: 50%
+				margin-left: -960px
+				clear: left
+				.slider
+					float: left
+					position: relative
+			.sliderbtns
+				position: absolute
+				right: 80px
+				bottom: 30px
+				.sliderbtn
+					width: 10px
+					height: 10px
+					background: #fff
+					border-radius: 50%
+					margin-left: 8px
+					cursor: pointer
+					float: left
+					&:hover
+						background: #216398
+		&:nth-child(3)
+			.title3
+				position: absolute
+				left: 103px
+				top: 115px
+			.car
+				position: absolute
+				left: 16px
+				top: 289px
+				img
+					position: absolute
+					top: 0
+					left: 0
+			.bar3
+				width: 308px
+				height: 20px
+				background: url(../img/bar3.png) 0 0 no-repeat
+				position: absolute
+				right: 11px
+				top: 233px
+				.bar3btn
+					width: 77px
+					height: 20px
+					float: left
+					cursor: pointer
+					color: #fff
+					text-align: center
+					span
+						top: -26px
+						position: relative
+						display: none
+					&:hover>span
+						display: block
+		&:nth-child(4)
+			.bg
+				height: 750px
+				img
+					position: absolute
+					left: 0
+					top: 0
+			.content
+				overflow: hidden
+				width: 350px
+				background: #fff
+				position: absolute
+				padding: 0 20px
+				.content4_1
+					position: absolute
+					top: 0
+
+
+
+
 	nav
 		position: fixed
 		top: 0
-		left: 50%
-		margin-left: -250px
+		left: 0
+		width: 180px
+		height: 100%
+		background: #000
+		color: #fff
+		.logo
+			position: absolute
+			top: 30px
+			left: 18px
+		.nav_bottom
+			position: absolute
+			bottom: 0
+			left: 0
 		ul
-			clear: left
 			li
-				float: left
 				width: 100px
 				height: 50px 
 				border: 1px solid #000
