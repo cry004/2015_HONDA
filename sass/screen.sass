@@ -15,10 +15,11 @@ html
 		min-width: 1000px
 		min-height: 600px
 		background: #000
+		font-family: 'Microsoft JhengHei'
 .wrapper 
 	width: $total 
 	position: relative
-	//overflow: hidden
+	overflow: hidden
 	top: 0
 	left: 0
 	section
@@ -32,7 +33,6 @@ html
 				width: 100%
 		.content
 			@extend %content
-			border: 1px solid #000
 		&:first-child
 			.car1
 				position: absolute
@@ -97,11 +97,12 @@ html
 					cursor: pointer
 					color: #fff
 					text-align: center
-					span
+					div
 						top: -26px
+						left: 10px
 						position: relative
 						display: none
-					&:hover>span
+					&:hover> div
 						display: block
 		&:nth-child(4)
 			.bg
@@ -140,9 +141,25 @@ html
 			bottom: 0
 			left: 0
 		ul
+			position: absolute
+			left: 47px
+			top: 79px
 			li
+				display: block
 				width: 100px
-				height: 50px 
-				border: 1px solid #000
+				height: 55px 
 				text-align: center
-				cursor: position
+				line-height: 55px
+				cursor: pointer
+				position: relative
+				&:hover span
+					display: block
+				span 
+					width: 12px
+					height: 2px
+					background: #e60021
+					position: absolute
+					left: 0
+					top: 28px
+					display: none
+
