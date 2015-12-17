@@ -220,13 +220,14 @@ html body {
   background: #fff;
   position: absolute;
   padding: 0 20px;
+  right: 0;
 }
-/* line 120, ../sass/screen.sass */
+/* line 121, ../sass/screen.sass */
 .wrapper section:nth-child(4) .content .content4_1 {
   position: absolute;
   top: 0;
 }
-/* line 127, ../sass/screen.sass */
+/* line 128, ../sass/screen.sass */
 .wrapper nav {
   position: fixed;
   top: 0;
@@ -236,25 +237,25 @@ html body {
   background: #000;
   color: #fff;
 }
-/* line 135, ../sass/screen.sass */
+/* line 136, ../sass/screen.sass */
 .wrapper nav .logo {
   position: absolute;
   top: 30px;
   left: 18px;
 }
-/* line 139, ../sass/screen.sass */
+/* line 140, ../sass/screen.sass */
 .wrapper nav .nav_bottom {
   position: absolute;
   bottom: 0;
   left: 0;
 }
-/* line 143, ../sass/screen.sass */
+/* line 144, ../sass/screen.sass */
 .wrapper nav ul {
   position: absolute;
   left: 47px;
   top: 79px;
 }
-/* line 147, ../sass/screen.sass */
+/* line 148, ../sass/screen.sass */
 .wrapper nav ul li {
   display: block;
   width: 100px;
@@ -264,11 +265,11 @@ html body {
   cursor: pointer;
   position: relative;
 }
-/* line 155, ../sass/screen.sass */
+/* line 156, ../sass/screen.sass */
 .wrapper nav ul li:hover span {
   display: block;
 }
-/* line 157, ../sass/screen.sass */
+/* line 158, ../sass/screen.sass */
 .wrapper nav ul li span {
   width: 12px;
   height: 2px;

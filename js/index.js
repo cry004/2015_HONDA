@@ -13,6 +13,7 @@ var initial = {
 		clickfun.navfun();
 		clickfun.bar3fun();
 		scrollfun.navchange();
+		$('.fpic').append('<img src="img/car_g.png" style="display: none"><img src="img/car_bl.png" style="display: none"><img src="img/car_b.png" style="display: none">');
 	}
 }
 var clickfun = {
@@ -41,7 +42,7 @@ var clickfun = {
 
 var scrollfun = {
 	sec3delta: 0,
-	slider: $('.slider').width()/-2,
+	slider: -960,
 	navchange: function(){
 		var temp = 0;
 		$('.wrapper').mousewheel(function(event, delta){
