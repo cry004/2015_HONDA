@@ -6,6 +6,13 @@ $total : 100%
 	height: 750px
 	position: relative
 	margin: 0 auto
+%middle
+	position: absolute
+	top: 0
+	left: 100px
+	right: 0
+	bottom: 0
+	margin: auto
 html
 	width: $total 
 	height: $total
@@ -16,10 +23,12 @@ html
 		min-height: 600px
 		background: #000
 		font-family: 'Microsoft JhengHei'
+		a
+			text-decoration: none
+			color: #fff
 .wrapper 
 	width: $total 
 	position: relative
-	overflow: hidden
 	top: 0
 	left: 0
 	section
@@ -29,8 +38,17 @@ html
 			width: 1920px
 			left: 50%
 			margin-left: -960px
+			overflow: hidden
 			img
-				width: 100%
+				width: $total
+		.fadecover
+			width: $total
+			height: $total
+			background: #000
+			position: absolute
+			top: 0
+			left: 0
+			display: none
 		.content
 			@extend %content
 		&:first-child
@@ -66,9 +84,8 @@ html
 					background: #fff
 					border-radius: 50%
 					margin-left: 8px
-					cursor: pointer
 					float: left
-					&:hover
+					&:first-child
 						background: #216398
 		&:nth-child(3)
 			.title3
@@ -91,15 +108,16 @@ html
 				right: 11px
 				top: 233px
 				.bar3btn
-					width: 77px
+					width: 75px
 					height: 20px
 					float: left
+					margin-left: -1px
 					cursor: pointer
 					color: #fff
 					text-align: center
 					div
 						top: -26px
-						left: 10px
+						left: 8px
 						position: relative
 						display: none
 					&:hover> div
@@ -121,16 +139,152 @@ html
 				.content4_1
 					position: absolute
 					top: 0
-
-
-
+		&:nth-child(5)
+			.bg
+				.bgpic
+					position: absolute
+			.content
+				.car5
+					position: absolute
+					top: 284px
+					display: none
+					img
+						margin-left: 1000px
+				.title_5
+					position: absolute
+					top: 125px
+					left: 125px
+					display: none
+			.rightcontent
+				width: 514px
+				height: 811px
+				background: #fff
+				position: absolute
+				right: -550px
+				top: -30px
+				display: none
+				@include transform(rotate(5deg))
+				.content5
+					@include transform(rotate(-5deg))
+					position: relative
+					top: 110px
+					left: 60px
+					.content5_1btn
+						cursor: pointer
+					div
+						position: absolute
+						display: none
+						&:first-child
+							display: block
+							top: -66px
+						img
+							width: auto
+		&:nth-child(6)
+			.bg
+				.bgpic
+					position: absolute
+				.content
+					div
+						position: absolute
+					.title_6
+						left: 130px
+						top: 316px
+						display: none
+					.content6_1
+						left: 533px
+						top: 517px
+						display: none
+					.content6_2
+						left: 52px
+						top: 340px
+						display: none
+					.content6_3
+						left: 398px
+						top: 67px
+						display: none
+				.content6_4
+					position: absolute
+					right: -3000px
+					top: 48px
+					height: 665px
+					background: #fff
+					overflow: hidden
+					.contentbox
+						position: relative
+						height: 80%
+						padding: 40px 20px
+						overflow: hidden
+						.content6_4pic
+							position: relative
+							top: 0
+							.content6_4btn
+								margin-top: 60px 
+								position: relative
+		&:nth-child(7)
+			.content7
+				width: 819px
+				height: 421px
+				@extend %middle
+				.btns
+					position: absolute
+					top: 0
+					left: 17px
+					div
+						width: 179px
+						height: 182px
+						margin-right: 14px
+						float: left
+						cursor: pointer
+						@include transform(skewX(10deg))
+						@include transform-origin(50% $total)
+						&:nth-child(4n)
+							margin-right: 0
+						&:hover
+							background: rgba(0,0,0,.2)
+						&:nth-child(n+5)
+							margin-top: 25px
+			.content7_btn
+				cursor: pointer
+				position: absolute
+				top: 100px
+				right: 98px
+	.cover
+		display: none
+		width: $total
+		height: $total
+		position: fixed
+		top: 0
+		left: 0
+		background: rgba(0,0,0,.7)
+		div
+			@extend %middle
+			display: none
+			.x
+				position: absolute
+				top: 0
+				right: 0
+				cursor: pointer
+		.content5_1popup
+			width: 559px
+			height: 311px
+		.content6_4popup
+			width: 857px
+			height: 508px
+		.content7
+			width: 943px
+			height: 508px
+		.content7_popup
+			width: 930px
+			height: 511px
+			overflow-x: hidden
+			overflow-y: auto
 
 	nav
 		position: fixed
 		top: 0
 		left: 0
 		width: 180px
-		height: 100%
+		height: $total
 		background: #000
 		color: #fff
 		.logo
@@ -145,12 +299,13 @@ html
 			position: absolute
 			left: 47px
 			top: 79px
+			height: $total
 			li
 				display: block
 				width: 100px
-				height: 55px 
+				height: 7.5%
 				text-align: center
-				line-height: 55px
+				line-height: $total
 				cursor: pointer
 				position: relative
 				&:hover span
@@ -161,6 +316,6 @@ html
 					background: #e60021
 					position: absolute
 					left: 0
-					top: 28px
+					top: 17%
 					display: none
 
