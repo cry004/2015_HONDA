@@ -37,11 +37,24 @@ var clickfun = {
 	otherclick: function(){
 		clickfun.navfun();
 		clickfun.bar3fun();
+		function popupshow(obj){
+			$('.cover').fadeIn().find(obj).show();
+		}
+		function popuphide(obj){
+			scrollfun.navchange();
+			$('.cover').fadeOut().find(obj).removeAttr('style');
+		}
 		$('.content5_1btn').on('click',function(){
-			$('.cover').fadeIn().find('.content5_1popup').show();
+			popupshow('.content5_1popup');
 		});
 		$('.content5_1popup .x').on('click',function(){
-			$('.cover').fadeOut().find('.content5_1popup').removeAttr('style');
+			popuphide('.content5_1popup');;
+		});
+		$('.content6_4btn').on('click',function(){
+			popupshow('.content6_4popup');
+		});
+		$('.content6_4popup .x').on('click',function(){
+			popuphide('.content6_4popup');
 		});
 	},
 	bar3fun: function(){
@@ -63,7 +76,7 @@ var scrollfun = {
 	navchange: function(){
 		var temp = 0;
 		function check(now) {	
-			if( now != 6 && now != 4 && now != 2 && now != 5 || scrollfun.sec3delta == 0){
+			if( now == 1 || now == 3 || scrollfun.sec3delta == 0){
 				temp ++;
 				if( temp == 3 ){
 					now++;
@@ -89,10 +102,10 @@ var scrollfun = {
 			$('.sliderbtns .sliderbtn').removeAttr('style');
 			
 		}
-		$('.cover').mousewheel(function(event, delta){
+		
+		$('.wrapper').mousewheel(function(event, delta){$('.cover').mousewheel(function(event, delta){
 			$('.wrapper').unbind('mousewheel');
 		});
-		$('.wrapper').mousewheel(function(event, delta){
 				event.preventDefault();				
 			if(!$.Body.is(':animated') && !scrolling){
 				if( delta < 0){ //scroll down
@@ -136,7 +149,6 @@ var scrollfun = {
 								$('.car5').fadeIn(200).find('img').animate({'margin-left':0},300,function(){
 									$('.title_5').fadeIn(500);
 								});
-								
 							}
 							if(scrollfun.sec3delta == -10){
 								$('.rightcontent').show().animate({'right': -35});
@@ -172,10 +184,10 @@ var scrollfun = {
 								$('.content6_3').fadeOut("slow");
 								$('.content6_4').animate({'right': 30},1000);	
 							}
-							if(scrollfun.sec3delta < -43){
-								$('.content6_4pic').css({'top':(scrollfun.sec3delta+40)*6});
+							if(scrollfun.sec3delta < -35){
+								$('.content6_4pic').css({'top':(scrollfun.sec3delta+35)*8});
 							}
-							if(scrollfun.sec3delta < -80){
+							if(scrollfun.sec3delta < -65){
 								now ++;
 								temp = 3;
 								check(now);
