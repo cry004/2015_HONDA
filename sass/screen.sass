@@ -26,21 +26,47 @@ html
 		a
 			text-decoration: none
 			color: #fff
+.loading
+	position: fixed
+	width: 100%
+	height: 100%
+	left: 0
+	top: 0
+	z-index:  1
+	.loadingbg 
+		position: absolute
+		width: 100%
+		height: 100%
+		left: 0
+		top: 0
+		background: #000
+	.loadingicon 
+		width: 250px
+		height: 250px
+		@extend %middle
+		text-align: center
+		.loadingpic 
+			width: 100%
+			height: 100%
+			position: absolute
+			background-image: url("../img/loading.gif")
+			background-position: 0 0
+			background-repeat: no-repeat
 .wrapper 
 	width: $total 
 	position: relative
 	top: 0
 	left: 0
 	section
-		@extend %content
+		width: 100%
+		height: 750px
+		position: relative
+		margin: 0 auto
 		.bg 
 			position: absolute
-			width: 1920px
-			left: 50%
-			margin-left: -960px
+			width: 100%
+			right: 0
 			overflow: hidden
-			img
-				width: $total
 		.fadecover
 			width: $total
 			height: $total
@@ -50,20 +76,32 @@ html
 			left: 0
 			display: none
 		.content
-			@extend %content
+			width: 1000px
+			height: 750px
+			position: relative
+			margin: 0 auto
 		&:first-child
+			.content
+				div 
+					position: absolute
 			.car1
-				position: absolute
-				left: 110px
-				top: 175px
+				left: 132px
+				top: 168px
+				display: none
+				img
+					margin-left: -150px
 			.title1_1
-				position: absolute
 				right: 50px
 				top: 133px
+				display: none
+				img
+					margin-right: -300px
 			.title1_2
-				position: absolute
 				left: 40px
-				top: 545px
+				top: 616px
+				display: none
+				img
+					margin-left: -300px
 		&:nth-child(2)
 			.sliders
 				width: 1920*3px
@@ -88,6 +126,8 @@ html
 					&:first-child
 						background: #216398
 		&:nth-child(3)
+			.bg3
+				display: none
 			.title3
 				position: absolute
 				left: 103px
@@ -131,14 +171,21 @@ html
 					top: 0
 			.content
 				overflow: hidden
-				width: 350px
+				width: 380px
 				background: #fff
 				position: absolute
 				padding: 0 20px
-				right: 0
+				right: 30px
 				.content4_1
+					height: 90%
+					width: 90%
+					overflow-x: hidden
+					overflow-y: auto
 					position: absolute
-					top: 0
+					top: 37px
+					img
+						position: absolute
+						top: 0
 		&:nth-child(5)
 			.bg
 				.bgpic
@@ -147,16 +194,17 @@ html
 				.car5
 					position: absolute
 					top: 284px
+					left: -50px
 					display: none
 					img
 						margin-left: 1000px
 				.title_5
 					position: absolute
 					top: 125px
-					left: 125px
+					left: 95px
 					display: none
 			.rightcontent
-				width: 514px
+				width: 40%
 				height: 811px
 				background: #fff
 				position: absolute
@@ -168,19 +216,29 @@ html
 					@include transform(rotate(-5deg))
 					position: relative
 					top: 110px
-					left: 60px
+					left: 38px
 					.content5_1btn
 						cursor: pointer
+						margin: 20px 15px
 					div
 						position: absolute
 						display: none
 						&:first-child
 							display: block
 							top: -66px
-						img
-							width: auto
 		&:nth-child(6)
+			width: 1000px
+			.bgbox
+				position: absolute
+				overflow: hidden
+				height: 100%
+				width: 100%
+				left: 50%
+				margin-left: -25%
 			.bg
+				width: 1920px
+				left: 50%
+				margin-left: -960px
 				.bgpic
 					position: absolute
 				.content
@@ -211,14 +269,18 @@ html
 					overflow: hidden
 					.contentbox
 						position: relative
-						height: 80%
+						height: 83%
 						padding: 40px 20px
 						overflow: hidden
 						.content6_4pic
 							position: relative
 							top: 0
+							height: 110%
+							width: 368px
+							overflow-x: hidden
+							overflow-y: auto
 							.content6_4btn
-								margin-top: 60px 
+								margin: 50px 0 50px 14px  
 								position: relative
 								cursor: pointer
 		&:nth-child(7)
@@ -271,14 +333,33 @@ html
 		.content6_4popup
 			width: 857px
 			height: 508px
-		.content7
+		.content7_p
 			width: 943px
 			height: 508px
 		.content7_popup
-			width: 930px
+			width: 960px
 			height: 511px
-			overflow-x: hidden
-			overflow-y: auto
+			background: #fff
+			padding-top: 30px
+			.content7_popuppic
+				display: block
+				position: absolute
+				top: 0px
+				left: 0px
+				width: 930px
+				height: 511px
+				
+				overflow-x: hidden
+				overflow-y: auto
+			.x	
+				position: absolute
+				right: -47px
+		.tvc
+			width: 720px
+			height: 500px
+			.x	
+				position: absolute
+				right: -47px	
 
 	nav
 		position: fixed
