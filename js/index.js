@@ -56,8 +56,6 @@ var clickfun = {
 				scrolling = true;
 				$('section').eq(pre).find('.fadecover').fadeIn('slow',function(){
 					$('section').eq(pre).find('div,img').removeAttr('style');
-					
-					//$('section').eq(now).find('img').removeAttr('style');
 				});
 				scrollfun.sec3delta = 0;
 				temp = 0;
@@ -149,56 +147,40 @@ var scrollfun = {
 				$('nav ul li').eq(now).trigger('click');
 			}
 		}
-		// function check2(now) {	
-		// 	if( now == 1 || now == 3 || scrollfun.sec3delta == 0){
-		// 		temp ++;
-		// 		if( temp == 3 ){
-		// 			now++;
-		// 			$('nav ul li').eq(now).trigger('click');
-		// 		}	
-		// 	}else{
-		// 		$('nav ul li').eq(now).trigger('click');
-		// 	}
-		// }
-		
 		$.Wrapper.mousewheel(function(event, delta){
 				event.preventDefault();				
 			if(!$.Body.is(':animated') && !scrolling){
 				if( delta < 0){ //scroll down
-					console.log(now,scrollfun.sec3delta);
+					// console.log(now,scrollfun.sec3delta);
 					if( now < section.length-1){
 						pre = now;
 						if(now == 0 || now == 2){
 							check(now);	
 						}else if(now == 1){
-							scrollfun.sec3delta += delta*10;
-							if(scrollfun.sec3delta == -60){
+							scrollfun.sec3delta += delta;
+							if(scrollfun.sec3delta == -24){
 								now ++;
 								temp = 3;
 								check(now);
-							}else if(scrollfun.sec3delta == -30){
-								//$('.sliderbtns .sliderbtn').eq(2).css({'background': '#216398'}).siblings().css({'background': '#fff'});
+							}else if(scrollfun.sec3delta == -16){
 								$('.sliders').stop();
 								$('.sliders').animate({'margin-left': scrollfun.slider*5},400);
-							}else if(scrollfun.sec3delta == -10){
-								//$('.sliderbtns .sliderbtn').eq(1).css({'background': '#216398'}).siblings().css({'background': '#fff'});
+							}else if(scrollfun.sec3delta == -8){
 								$('.sliders').stop();
 								$('.sliders').animate({'margin-left': scrollfun.slider*3},400);
-						
 							}
 						}else if(now ==3){
-							scrollfun.sec3delta += delta*30;
-							$('.content4_1').scrollTop(scrollfun.sec3delta*-1);
-							if(scrollfun.sec3delta < -1120 && $('.bg4_1').width()){
+							scrollfun.sec3delta += delta;
+							$('.content4_1').scrollTop(scrollfun.sec3delta*-30);
+							if(scrollfun.sec3delta < -37 && $('.bg4_1').width()){
 								$('.bg4_1').fadeOut(1000);
 							}
-							if(scrollfun.sec3delta < -2350){
+							if(scrollfun.sec3delta < -80){
 								now ++;
 								temp = 3;
 								check(now);
 								$('.content4_1').scrollTop(0);
 							}
-							// console.log()
 							//$(this).unbind('mousewheel');
 							//scrollfun.navchange();
 						}else if(now == 4){
@@ -237,9 +219,9 @@ var scrollfun = {
 								$('.content6_4').removeAttr('style').animate({'right': 13+'%'},1000);	
 							}
 							if(scrollfun.sec3delta < -20){
-								$('.content6_4pic').scrollTop((scrollfun.sec3delta+15)*-8);
+								$('.content6_4pic').scrollTop((scrollfun.sec3delta+20)*-8);
 							}
-							if(scrollfun.sec3delta < -40){
+							if(scrollfun.sec3delta < -45){
 								now ++;
 								temp = 3;
 								check(now);
@@ -251,7 +233,7 @@ var scrollfun = {
 					}
 					
 				} else if ( delta > 0 ){ //scroll up
-					console.log(now,scrollfun.sec3delta);
+					// console.log(now,scrollfun.sec3delta);
 					// if( now > 0) {
      //                    pre = now;
      //                    now --;
@@ -260,12 +242,12 @@ var scrollfun = {
      //                }
      	 			if( now > 0) {
 						pre = now;
-						if(now == 6 ){
+						if(now == 6 || now == 2 ){
 							 now --;
 							$('nav ul li').eq(now).trigger('click');
 						}else if(now == 5){
 							 scrollfun.sec3delta += delta;
-							if(scrollfun.sec3delta == 0){
+							if(scrollfun.sec3delta >= 1){
 								 now --;
 								$('nav ul li').eq(now).trigger('click');
 							}
@@ -283,75 +265,68 @@ var scrollfun = {
 							}
 							if(scrollfun.sec3delta == -11){
 								$('.content6_3').fadeIn("slow");
-								$('.content6_4').animate({'right': -3000},1000).removeAttr('style');
+								$('.content6_4').animate({'right': -3000},1000,function(){
+									$(this).removeAttr('style');
+								})
 								$('.content6_4').scrollTop(0);
 							}
 							if(scrollfun.sec3delta < -12){
-								console.log((scrollfun.sec3delta+15)*-8+'@@@@');
 								$('.content6_4pic').scrollTop((scrollfun.sec3delta+15)*-8);
+							}	
+						}else if(now == 4){
+							 scrollfun.sec3delta += delta;
+							if(scrollfun.sec3delta >= 1){
+								 now --;
+								$('nav ul li').eq(now).trigger('click');
 							}
-							// if(scrollfun.sec3delta < -40){
-							// 	now ++;
-							// 	temp = 3;
-							// 	check(now);
-							// 	$('.content6_4pic').scrollTop(0);
-							// }
+							if(scrollfun.sec3delta == -5){
+								$('.rightcontent').animate({'right': -550},function(){
+									$(this).removeAttr('style');
+								});
+							}
+							if(scrollfun.sec3delta == -9){
+								$('.rightcontent .content5_1').fadeIn();
+								$('.rightcontent .content5_2').fadeOut();
+							}
+							if(scrollfun.sec3delta == -14){
+								$('.rightcontent .content5_2').fadeIn();
+								$('.rightcontent .content5_3').fadeOut();
+							}
+							if(scrollfun.sec3delta == -21){
+								$('.rightcontent .content5_4').fadeOut();
+								$('.rightcontent .content5_3').fadeIn();
+							}
 							
+						}else if(now == 3){
+							scrollfun.sec3delta += delta;
+							if(scrollfun.sec3delta >= 1){
+								 now --;
+								$('nav ul li').eq(now).trigger('click');
+							}
+							if(scrollfun.sec3delta < 0){
+								$('.content4_1').scrollTop(scrollfun.sec3delta*-30);
+							}
+							if(scrollfun.sec3delta == -28){
+								$('.bg4_1').fadeIn(500);
+							}
+						}else if(now == 1){
+							scrollfun.sec3delta += delta;
+							if(scrollfun.sec3delta >= 1){
+								 now --;
+								$('nav ul li').eq(now).trigger('click');
+							}
+							if(scrollfun.sec3delta == -23){
+								now ++;
+								temp = 3;
+								check(now);
+							}else if(scrollfun.sec3delta == -15){
+								$('.sliders').stop();
+								$('.sliders').animate({'margin-left': scrollfun.slider*3},400);
+							}else if(scrollfun.sec3delta == -7){
+								$('.sliders').stop();
+								$('.sliders').animate({'margin-left': scrollfun.slider*1},400);
+							}
 						}
-						// }else if(now == 1){
-						// 	scrollfun.sec3delta += delta*10;
-						// 	if(scrollfun.sec3delta == -60){
-						// 		now ++;
-						// 		temp = 3;
-						// 		check(now);
-						// 	}else if(scrollfun.sec3delta == -30){
-						// 		//$('.sliderbtns .sliderbtn').eq(2).css({'background': '#216398'}).siblings().css({'background': '#fff'});
-						// 		$('.sliders').stop();
-						// 		$('.sliders').animate({'margin-left': scrollfun.slider*5},400);
-						// 	}else if(scrollfun.sec3delta == -10){
-						// 		//$('.sliderbtns .sliderbtn').eq(1).css({'background': '#216398'}).siblings().css({'background': '#fff'});
-						// 		$('.sliders').stop();
-						// 		$('.sliders').animate({'margin-left': scrollfun.slider*3},400);
-						
-						 	// }
-						// }else if(now ==3){
-						// 	scrollfun.sec3delta += delta*30;
-						// 	$('.content4_1').scrollTop(scrollfun.sec3delta*-1);
-						// 	if(scrollfun.sec3delta < -1120 && $('.bg4_1').width()){
-						// 		$('.bg4_1').fadeOut(1000);
-						// 	}
-						// 	if(scrollfun.sec3delta < -2350){
-						// 		now ++;
-						// 		temp = 3;
-						// 		check(now);
-						// 		$('.content4_1').scrollTop(0);
-						// 	}
-						// 	// console.log()
-						// 	//$(this).unbind('mousewheel');
-						// 	//scrollfun.navchange();
-						// }else if(now == 4){
-						// 	scrollfun.sec3delta += delta;
-						// 	if(scrollfun.sec3delta == -5){
-						// 		$('.rightcontent').show().animate({'right': -3+'%'});
-						// 	}
-						// 	if(scrollfun.sec3delta == -10){
-						// 		$('.rightcontent .content5_2').fadeIn(1000).siblings().hide();
-						// 	}
-						// 	if(scrollfun.sec3delta == -15){
-						// 		$('.rightcontent .content5_3').fadeIn(1000).siblings().hide();
-						// 	}
-						// 	if(scrollfun.sec3delta == -20){
-						// 		$('.rightcontent .content5_4').fadeIn(1000).siblings().hide();
-						// 	}
-						// 	if(scrollfun.sec3delta < -27){
-						// 		now ++;
-						// 		temp = 3;
-						// 		check(now);
-						// 	}
-							
-						// }else 
-						
-						
 					}
 				}
 			}
