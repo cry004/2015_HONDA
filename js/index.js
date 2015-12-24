@@ -16,6 +16,8 @@ var initial = {
 		clickfun.otherclick();
 		scrollfun.navchange();
 		$('.fpic').append('<img src="img/car_g.png" style="display: none"><img src="img/car_bl.png" style="display: none"><img src="img/car_b.png" style="display: none">');
+		$('.sliders .s2').append('<img src="img/bg2_2.jpg" alt="">');
+		$('.sliders .s3').append('<img src="img/bg2_3.jpg" alt="">');
 	}
 }
 var animatefun = {
