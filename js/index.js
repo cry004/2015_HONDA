@@ -149,17 +149,17 @@ var scrollfun = {
 				$('nav ul li').eq(now).trigger('click');
 			}
 		}
-		$.Wrapper.mousewheel(function(event, delta){
-				event.preventDefault();				
+		$.Wrapper.on('mousewheel', function(event) {
+				event.preventDefault();
+				// console.log(event.deltaY,now,scrollfun.sec3delta);		
 			if(!$.Body.is(':animated') && !scrolling){
-				if( delta < 0){ //scroll down
-					// console.log(now,scrollfun.sec3delta);
+				if( event.deltaY < 0){ //scroll down
 					if( now < section.length-1){
 						pre = now;
 						if(now == 0 || now == 2){
 							check(now);	
 						}else if(now == 1){
-							scrollfun.sec3delta += delta;
+							scrollfun.sec3delta -= 1;
 							if(scrollfun.sec3delta == -24){
 								now ++;
 								temp = 3;
@@ -172,7 +172,7 @@ var scrollfun = {
 								$('.sliders').animate({'margin-left': scrollfun.slider*3},400);
 							}
 						}else if(now ==3){
-							scrollfun.sec3delta += delta;
+							scrollfun.sec3delta -= 1;
 							$('.content4_1').scrollTop(scrollfun.sec3delta*-30);
 							if(scrollfun.sec3delta < -37 && $('.bg4_1').width()){
 								$('.bg4_1').fadeOut(1000);
@@ -186,7 +186,7 @@ var scrollfun = {
 							//$(this).unbind('mousewheel');
 							//scrollfun.navchange();
 						}else if(now == 4){
-							scrollfun.sec3delta += delta;
+							scrollfun.sec3delta -= 1;
 							if(scrollfun.sec3delta == -5){
 								$('.rightcontent').show().animate({'right': -3+'%'});
 							}
@@ -206,7 +206,7 @@ var scrollfun = {
 							}
 							
 						}else if(now == 5){
-							scrollfun.sec3delta += delta;
+							scrollfun.sec3delta -= 1;
 							if(scrollfun.sec3delta == -3){
 								$('.content6_1').fadeIn(1000).siblings().hide();
 							}
@@ -234,7 +234,7 @@ var scrollfun = {
 						
 					}
 					
-				} else if ( delta > 0 ){ //scroll up
+				} else if ( event.deltaY > 0 ){ //scroll up
 					// console.log(now,scrollfun.sec3delta);
 					// if( now > 0) {
      //                    pre = now;
@@ -248,7 +248,7 @@ var scrollfun = {
 							 now --;
 							$('nav ul li').eq(now).trigger('click');
 						}else if(now == 5){
-							 scrollfun.sec3delta += delta;
+							 scrollfun.sec3delta += 1;
 							if(scrollfun.sec3delta >= 1){
 								 now --;
 								$('nav ul li').eq(now).trigger('click');
@@ -276,7 +276,7 @@ var scrollfun = {
 								$('.content6_4pic').scrollTop((scrollfun.sec3delta+15)*-8);
 							}	
 						}else if(now == 4){
-							 scrollfun.sec3delta += delta;
+							 scrollfun.sec3delta += 1;
 							if(scrollfun.sec3delta >= 1){
 								 now --;
 								$('nav ul li').eq(now).trigger('click');
@@ -300,7 +300,7 @@ var scrollfun = {
 							}
 							
 						}else if(now == 3){
-							scrollfun.sec3delta += delta;
+							scrollfun.sec3delta += 1;
 							if(scrollfun.sec3delta >= 1){
 								 now --;
 								$('nav ul li').eq(now).trigger('click');
@@ -312,7 +312,7 @@ var scrollfun = {
 								$('.bg4_1').fadeIn(500);
 							}
 						}else if(now == 1){
-							scrollfun.sec3delta += delta;
+							scrollfun.sec3delta += 1;
 							if(scrollfun.sec3delta >= 1){
 								 now --;
 								$('nav ul li').eq(now).trigger('click');
